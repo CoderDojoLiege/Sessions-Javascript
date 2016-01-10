@@ -1,12 +1,15 @@
 <script>
-// ceci est un commentaire, il ne sera pas lu par l'ordinateur
 
-var compteur = 0;
+var bonbons = 12;
 
-function clique() {
-	// la ligne suivante signifie que mon compteur est augmenté de 1
-	compteur = compteur+1;
-	alert(compteur);
+function mange() {
+    bonbons = bonbons-1;
+    if(bonbons <= 0){
+        alert("Il n'y a plus de bonbons ! :'(");
+    }
+    else {
+        alert(bonbons);
+    }
 }
 </script>
-<button onclick="clique()">Ajouter</button>
+<button onclick="mange()">Manger</button>
