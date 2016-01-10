@@ -1,15 +1,17 @@
 <script>
 
-var bonbons = 12;
+// PV veut dire Points de Vie
+var PV = 12;
+var degats = 3;
 
-function mange() {
-    bonbons = bonbons-1;
-    if(bonbons <= 0){
-        alert("Il n'y a plus de bonbons ! :'(");
+function attaque() {
+    PV = PV-degats;
+    if(PV <= 0){
+        alert("Le monstre est mort ! :-)");
     }
     else {
-        alert(bonbons);
+        alert("Le monstre a perdu "+degats+". Il lui en reste "+PV);
     }
 }
 </script>
-<button onclick="mange()">Manger</button>
+<button onclick="attaque()">Attaque</button>
