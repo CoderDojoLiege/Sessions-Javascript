@@ -5,26 +5,34 @@ var PV = 12;
 var degats = 3;
 var soins = 2;
 var isDead = false;
+var hasFullLife = true;
 
 function attaque() {
     if(isDead){
         alert("Le monstre est déjà mort !");
     }
-    else if(PV-degats <= 0){ // le monstre n'est pas encore mort mais il le sera après l'attaque
+    else if(PV-degats <= 0){
         PV = 0;
-        isDead = true; // on indique que maintenant le monstre est mort
+        isDead = true;
         alert("Le monstre vient de mourir ! :-)");
     }
     else {
         PV = PV-degats;
+        if(hasFullLife){
+                hasFullLife = !hasFullLife;
+        }
         alert("Le monstre a perdu "+degats+" PV. Il lui en reste "+PV);
     }
 }
 
 function soigne() {
-    if(PV+soins >= 12){ //cela veut dire que le monstre sera en pleine santé après le soin.
-        PV = 12; // On mets donc les PV au maximum.
-        alert("Le monstre a ses points de vie déjà au maximum.");
+    if(hasFullLife){
+        alert("La santé du monstre est déjà pleine.");
+    }
+    else if(PV+soins >= 12){
+        PV = 12;
+        hasFullLife = true;
+        alert("Le monstre a ses points de vie au maximum.");
     }
     else {
         PV = PV+soins;
