@@ -2,8 +2,8 @@
 
 // PV veut dire Points de Vie
 var PV = 12;
-var degats = 3;
-var soins = 2;
+var degats = getRandomMinMax(1,4);
+var soins = getRandomMinMax(0,2);
 var isDead = false;
 var hasFullLife = true;
 
@@ -42,6 +42,12 @@ function soigne() {
         alert("Le monstre a gagné "+soins+" PV. Il en a maintenant "+PV);
     }
 }
+
+function getRandomMinMax(min,max)
+{
+    return Math.floor(Math.random()*(max-min))+min;
+}
+
 </script>
 <button onclick="attaque()">Attaque</button>
 <button onclick="soigne()">Soigne</button>
