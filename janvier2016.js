@@ -28,6 +28,9 @@ function soigne() {
     }
     else {
         PV = PV+soins;
+        if(isDead){
+                isDead = !isDead;
+        }
         alert("Le monstre a gagné "+soins+" PV. Il en a maintenant "+PV);
     }
 }
