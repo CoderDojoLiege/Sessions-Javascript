@@ -2,12 +2,13 @@
 
 // PV veut dire Points de Vie
 var PV = 12;
-var degats = getRandomMinMax(1,4);
-var soins = getRandomMinMax(0,2);
+var degats;
+var soins;
 var isDead = false;
 var hasFullLife = true;
 
 function attaque() {
+    degats = getRandomMinMax(1,4);
     if(isDead){
         alert("Le monstre est déjà mort !");
     }
@@ -26,6 +27,7 @@ function attaque() {
 }
 
 function soigne() {
+    soins = getRandomMinMax(0,2);
     if(hasFullLife){
         alert("La santé du monstre est déjà pleine.");
     }
