@@ -4,11 +4,16 @@
 var PV = 12;
 var degats = 3;
 var soins = 2;
+var isDead = false;
 
 function attaque() {
-    if(PV-degats <= 0){ //cela veut dire que le monstre sera mort après l attaque.
-        PV = 0; // si il est mort, on ne veut pas de PV dans le négatifs. On mets donc les PV à 0.
-        alert("Le monstre est mort ! :-)");
+    if(isDead){
+        alert("Le monstre est déjà mort !");
+    }
+    else if(PV-degats <= 0){ // le monstre n'est pas encore mort mais il le sera après l'attaque
+        PV = 0;
+        isDead = true; // on indique que maintenant le monstre est mort
+        alert("Le monstre vient de mourir ! :-)");
     }
     else {
         PV = PV-degats;
