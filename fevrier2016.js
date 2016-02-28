@@ -130,7 +130,13 @@
 	}
 
 	function deplacement(e) {
-	    alert(e.keyCode);
+	    // quand on appuie sur la touche du bas, on va en bas
+	    if(e.keyCode == 40) {
+		playerBarY = playerBarY + PXL_DEPLA;
+	    // quand on appuie sur la touche du haut, on va en haut
+	    } else if(e.keyCode == 38) {
+		playerBarY = playerBarY - PXL_DEPLA;
+	    }
 	}
 
 
