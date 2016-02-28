@@ -56,10 +56,10 @@
 	    context = document.getElementById('canvasElem').getContext('2d');
 
 	    // Initialisations des variables
-	    playerBarX = ? à droite ?
-	    playerBarY = ? au milieu ?
-	    computerBarX = ? à gauche ?
-	    computerBarY = ? au milieu ?
+	    playerBarX = ZONE_JEU_WIDTH-BARRE_JEU_WIDTH;
+	    playerBarY = (ZONE_JEU_HEIGHT-BARRE_JEU_HEIGHT)/2;
+	    computerBarX = 0;
+	    computerBarY = playerBarY;
 
 	    // Boucle de rafraichissement du contexte 2D
 	    boucleJeu = setInterval(refreshGame, 10);
