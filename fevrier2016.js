@@ -89,15 +89,14 @@
 
 
 	    // il faudrait savoir quand on perd
-	    /*if ( la balle est tombée de notre cote) {
+	    if ((balleX + dirBalleX * VITESSE_BALLE) >  ZONE_JEU_WIDTH) {
 		perdu();
 	    }
 	    // et quand on gagne
-	    else if ( la balle est tombée du coté adverse){
+	    else if ((balleX + dirBalleX * VITESSE_BALLE) < 0){
 		gagne();
-	    }*/
-
-	    if (mustRebond("left",computerBarX, computerBarY)){
+	    }
+	    else if (mustRebond("left",computerBarX, computerBarY)){
 		dirBalleX = 1;
 		// change un peu la direction en fonction de comment la balle touche la barre.
 		dirBalleY= 2*(balleY-(computerBarY+BARRE_JEU_HEIGHT/2))/BARRE_JEU_HEIGHT;
@@ -150,6 +149,15 @@
 		    playerBarY = 0;
 		}
 	    }
+	}
+
+	function gagne() {
+	    clearInterval(boucleJeu);
+	    alert("Bravo vous avez gagné !");
+	}
+	function perdu() {
+	    clearInterval(boucleJeu);
+	    alert("Dommage, vous avez perdu !");
 	}
 
 
