@@ -133,9 +133,16 @@
 	    // quand on appuie sur la touche du bas, on va en bas
 	    if(e.keyCode == 40) {
 		playerBarY = playerBarY + PXL_DEPLA;
+		if(playerBarY + BARRE_JEU_HEIGHT > ZONE_JEU_HEIGHT) {
+		    playerBarY = ZONE_JEU_HEIGHT - BARRE_JEU_HEIGHT;
+		}
+
 	    // quand on appuie sur la touche du haut, on va en haut
 	    } else if(e.keyCode == 38) {
 		playerBarY = playerBarY - PXL_DEPLA;
+		if(playerBarY < 0) {
+		    playerBarY = 0;
+		}
 	    }
 	}
 
