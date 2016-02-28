@@ -106,8 +106,8 @@
 		}
 	    }
 
-	    // balleX = ? le nouveau X de la balle ?
-	    // balleY = ? le nouveau Y de la balle ?
+	    balleX = balleX + (VITESSE_BALLE*dirBalleX);
+	    balleY = balleY + (VITESSE_BALLE*dirBalleY);
 
 	    // la barre computer courre après la balle
 	    computerBarY = calculComputerBarY();
