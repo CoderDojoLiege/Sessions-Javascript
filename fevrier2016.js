@@ -89,7 +89,13 @@
 
 
 	    // il faudrait savoir quand on perd
+	    /*if ( la balle est tombée de notre cote) {
+		perdu();
+	    }
 	    // et quand on gagne
+	    else if ( la balle est tombée du coté adverse){
+		gagne();
+	    }*/
 
 	    if (mustRebond("left",computerBarX, computerBarY)){
 		dirBalleX = 1;
