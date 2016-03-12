@@ -110,6 +110,7 @@
 
                     // Vu qu on a pas perdu la balle, on pourrait ajouter des points à notre score.
                     score = score+1
+                    document.getElementById('score').innerHTML = score;
 		}
 	    }
 
@@ -211,5 +212,6 @@
 	<canvas id="canvasElem" width="400" height="300">
 		Votre navigateur ne supporte pas la fonctionnalité Canvas.
 	</canvas>
+	<p>Nombre de rebonds : <span id="score">0</span></p>
 </div>
 
