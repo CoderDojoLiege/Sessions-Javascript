@@ -160,6 +160,12 @@
 	function perdu() {
 	    var choix = confirm("Dommage, vous avez perdu avec un score de "+score+" points!\nVoulez-vous rejouer ?");
 	    if(choix){
+		playerBarY = (ZONE_JEU_HEIGHT/2)-(BARRE_JEU_HEIGHT/2);
+		computerBarY = playerBarY;
+		balleX = 100;
+		balleY = 250;
+		score = 0;
+		document.getElementById('score').innerHTML = score;
 	    } else {
 		clearInterval(boucleJeu);
 	    }
