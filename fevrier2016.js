@@ -158,8 +158,11 @@
 	    alert("Bravo vous avez gagné !");
 	}
 	function perdu() {
-	    clearInterval(boucleJeu);
-	    alert("Dommage, vous avez perdu avec un score de "+score+" points!");
+	    var choix = confirm("Dommage, vous avez perdu avec un score de "+score+" points!\nVoulez-vous rejouer ?");
+	    if(choix){
+	    } else {
+		clearInterval(boucleJeu);
+	    }
 	}
 
 
