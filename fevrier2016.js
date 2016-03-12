@@ -50,6 +50,7 @@
 	var dirBalleX = 1; // vers la droite
 	var dirBalleY = -1; // vers le haut
 	var boucleJeu;
+	var score = 0;
 
 	window.addEventListener('load', function () {
 	    // On récupère l'objet canvas pour dessiner dedans
@@ -108,6 +109,7 @@
 		    dirBalleY= 2*(balleY-(playerBarY+BARRE_JEU_HEIGHT/2))/BARRE_JEU_HEIGHT;
 
                     // Vu qu on a pas perdu la balle, on pourrait ajouter des points à notre score.
+                    score = score+1
 		}
 	    }
 
@@ -131,7 +133,6 @@
 	    context.arc(balleX, balleY, DIMENSION_BALLE, 0, Math.PI*2, true);
 	    context.closePath();
 	    context.fill();
-
 	}
 
 	function deplacement(e) {
@@ -157,7 +158,7 @@
 	}
 	function perdu() {
 	    clearInterval(boucleJeu);
-	    alert("Dommage, vous avez perdu !");
+	    alert("Dommage, vous avez perdu avec un score de "+score+" points!");
 	}
 
 
