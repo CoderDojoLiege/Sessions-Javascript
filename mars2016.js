@@ -33,7 +33,7 @@
 	    context = document.getElementById('canvasElem').getContext('2d');
 
 	    // Boucle de rafraichissement du contexte 2D
-	    boucleJeu = setInterval(refreshGame, 10);
+	    boucleJeu = setInterval(refreshGame, 200);
 
 	    window.document.onkeydown = deplacement;
 	}, false);
@@ -43,11 +43,6 @@
 
 	    // On efface la zone
 	    context.clearRect(0, 0, ZONE_JEU_WIDTH, ZONE_JEU_HEIGHT);
-
-	    // Puis on réaffiche le nécessaire
-	    context.fillStyle = "black";
-	    context.fillRect(squareX,squareY,SQUARE_LENGTH,SQUARE_LENGTH);
-
 
 	    if(down) {
 		squareY = squareY + 10;
@@ -70,6 +65,9 @@
 		    squareX = 0;
 		}
 	    }
+
+	    context.fillStyle = "black";
+	    context.fillRect(squareX,squareY,SQUARE_LENGTH,SQUARE_LENGTH);
 
 	}
 
