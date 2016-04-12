@@ -14,6 +14,8 @@
 	// Hauteur du jeu
 	var ZONE_JEU_HEIGHT = 300;
 
+	var SQUARE_LENGTH = 10;
+
 	// Variables
 	var context;
 	var boucleJeu;
@@ -34,6 +36,8 @@
 	    context.clearRect(0, 0, ZONE_JEU_WIDTH, ZONE_JEU_HEIGHT);
 
 	    // Puis on réaffiche le nécessaire
+	    context.fillStyle = "black";
+	    context.fillRect(100,100,SQUARE_LENGTH,SQUARE_LENGTH);
 
 	}
 </script>
