@@ -22,6 +22,12 @@
 	var squareX = 100;
 	var squareY = 100;
 
+	// direction du serpent
+	var up = true;
+	var down = true;
+	var left = true;
+	var right = true;
+
 	window.addEventListener('load', function () {
 	    // On récupère l'objet canvas pour dessiner dedans
 	    context = document.getElementById('canvasElem').getContext('2d');
@@ -42,29 +48,45 @@
 	    context.fillStyle = "black";
 	    context.fillRect(squareX,squareY,SQUARE_LENGTH,SQUARE_LENGTH);
 
-	}
 
-	function deplacement(e) {
-	    if(e.keyCode == 40) {
+	    if(down) {
 		squareY = squareY + 10;
 		if(squareY > ZONE_JEU_HEIGHT-10){
 		    squareY = ZONE_JEU_HEIGHT-10;
 		}
-	    } else if(e.keyCode == 38) {
+	    } else if(up) {
 		squareY = squareY - 10;
 		if(squareY < 0){
 		    squareY = 0;
 		}
-	    } else if(e.keyCode == 39) {
+	    } else if(right) {
 		squareX = squareX + 10;
 		if(squareX > ZONE_JEU_WIDTH-10){
 		    squareX = ZONE_JEU_WIDTH-10;
 		}
-	    } else if(e.keyCode == 37) {
+	    } else if(left) {
 		squareX = squareX - 10;
 		if(squareX < 0){
 		    squareX = 0;
 		}
+	    }
+
+	}
+
+	function deplacement(e) {
+	    up = false;
+	    down = false;
+	    left = false;
+	    right = false;
+
+	    if(e.keyCode == 40) {
+		down = true;
+	    } else if(e.keyCode == 38) {
+		up = true;
+	    } else if(e.keyCode == 39) {
+		right = true;
+	    } else if(e.keyCode == 37) {
+		left = true;
 	    }
 	}
 </script>
