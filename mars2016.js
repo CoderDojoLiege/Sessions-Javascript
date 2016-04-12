@@ -47,12 +47,24 @@
 	function deplacement(e) {
 	    if(e.keyCode == 40) {
 		squareY = squareY + 10;
+		if(squareY > ZONE_JEU_HEIGHT-10){
+		    squareY = ZONE_JEU_HEIGHT-10;
+		}
 	    } else if(e.keyCode == 38) {
 		squareY = squareY - 10;
+		if(squareY < 0){
+		    squareY = 0;
+		}
 	    } else if(e.keyCode == 39) {
 		squareX = squareX + 10;
+		if(squareX > ZONE_JEU_WIDTH-10){
+		    squareX = ZONE_JEU_WIDTH-10;
+		}
 	    } else if(e.keyCode == 37) {
 		squareX = squareX - 10;
+		if(squareX < 0){
+		    squareX = 0;
+		}
 	    }
 	}
 </script>
