@@ -96,6 +96,15 @@
 		    this.y = Y;
 		}
 	    };
+	},
+	function Snake(head) {
+	    this.head = head;
+	    this.draw = function() {
+		//on va dessiner tout le serpent
+	    };
+	    this.move = function(X, Y) {
+		//on va faire bouger tout le serpent
+	    };
 	}
 </script>
 
