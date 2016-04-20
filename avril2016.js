@@ -19,7 +19,7 @@
 	// Variables
 	var context;
 	var boucleJeu;
-	var square = new Square(100,100);
+	var snake = new Snake(new Square(100,100));
 
 	// direction du serpent
 	var up = true;
@@ -44,16 +44,16 @@
 	    context.clearRect(0, 0, ZONE_JEU_WIDTH, ZONE_JEU_HEIGHT);
 
 	    if(down) {
-		square.move(square.x,square.y + 10);
+		snake.move(snake.head.x, snake.head.y + 10);
 	    } else if(up) {
-		square.move(square.x,square.y - 10);
+		snake.move(snake.head.x, snake.head.y - 10);
 	    } else if(right) {
-		square.move(square.x + 10,square.y);
+		snake.move(snake.head.x + 10, snake.head.y);
 	    } else if(left) {
-		square.move(square.x - 10,square.y);
+		snake.move(snake.head.x - 10, snake.head.y);
 	    }
 
-	    square.draw();
+	    snake.draw();
 	}
 
 	function deplacement(e) {
@@ -96,7 +96,7 @@
 		    this.y = Y;
 		}
 	    };
-	},
+	}
 	function Snake(head) {
 	    this.head = head;
 	    this.draw = function() {
