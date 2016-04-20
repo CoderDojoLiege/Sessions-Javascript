@@ -44,25 +44,13 @@
 	    context.clearRect(0, 0, ZONE_JEU_WIDTH, ZONE_JEU_HEIGHT);
 
 	    if(down) {
-		square.y = square.y + 10;
-		if(square.y > ZONE_JEU_HEIGHT-10){
-		    square.y = ZONE_JEU_HEIGHT-10;
-		}
+		square.move(square.x,square.y + 10);
 	    } else if(up) {
-		square.y = square.y - 10;
-		if(square.y < 0){
-		    square.y = 0;
-		}
+		square.move(square.x,square.y - 10);
 	    } else if(right) {
-		square.x = square.x + 10;
-		if(square.x > ZONE_JEU_WIDTH-10){
-		    square.x = ZONE_JEU_WIDTH-10;
-		}
+		square.move(square.x + 10,square.y);
 	    } else if(left) {
-		square.x = square.x - 10;
-		if(square.x < 0){
-		    square.x = 0;
-		}
+		square.move(square.x - 10,square.y);
 	    }
 
 	    square.draw();
@@ -90,7 +78,19 @@
 	    this.draw = function() {
 		context.fillStyle = "black";
 		context.fillRect(this.x,this.y,SQUARE_LENGTH,SQUARE_LENGTH);
-	    }
+	    };
+	    this.move = function(X, Y) {
+		if(Y > ZONE_JEU_HEIGHT-10 || Y < 0){
+		    // on ne fait rien
+		}
+		else if(X > ZONE_JEU_WIDTH-10 || X < 0){
+		    // on ne fait rien non plus
+		}
+		else {
+		    this.x = X;
+		    this.y = Y;
+		}
+	    };
 	}
 </script>
 
