@@ -100,7 +100,12 @@
 	function Snake(head) {
 	    this.head = head;
 	    this.draw = function() {
-		//on va dessiner tout le serpent
+		head.draw();
+		var body = head.next;
+		while(body.next){
+		    body.draw();
+		    body = body.next;
+		}
 	    };
 	    this.move = function(X, Y) {
 		head.move(X,Y);
