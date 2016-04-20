@@ -65,9 +65,7 @@
 		}
 	    }
 
-	    context.fillStyle = "black";
-	    context.fillRect(square.x,square.y,SQUARE_LENGTH,SQUARE_LENGTH);
-
+	    square.draw();
 	}
 
 	function deplacement(e) {
@@ -89,6 +87,10 @@
 	function Square(x,y) {
 	    this.x = x;
 	    this.y = y;
+	    this.draw = function() {
+		context.fillStyle = "black";
+		context.fillRect(this.x,this.y,SQUARE_LENGTH,SQUARE_LENGTH);
+	    }
 	}
 </script>
 
