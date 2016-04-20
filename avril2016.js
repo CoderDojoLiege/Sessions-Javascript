@@ -72,9 +72,10 @@
 		left = true;
 	    }
 	}
-	function Square(x,y) {
+	function Square(x,y,next) {
 	    this.x = x;
 	    this.y = y;
+	    this.next = next;
 	    this.draw = function() {
 		context.fillStyle = "black";
 		context.fillRect(this.x,this.y,SQUARE_LENGTH,SQUARE_LENGTH);
@@ -87,6 +88,10 @@
 		    // on ne fait rien non plus
 		}
 		else {
+		    // on va faire bouger notre suivant (si il y en a un) avant de bouger nous-même
+		    if(this.next){
+			this.next.move(this.x, this.y);
+		    }
 		    this.x = X;
 		    this.y = Y;
 		}
