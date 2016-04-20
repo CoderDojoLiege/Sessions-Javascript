@@ -19,8 +19,7 @@
 	// Variables
 	var context;
 	var boucleJeu;
-	var squareX = 100;
-	var squareY = 100;
+	var square = new Square(100,100);
 
 	// direction du serpent
 	var up = true;
@@ -45,29 +44,29 @@
 	    context.clearRect(0, 0, ZONE_JEU_WIDTH, ZONE_JEU_HEIGHT);
 
 	    if(down) {
-		squareY = squareY + 10;
-		if(squareY > ZONE_JEU_HEIGHT-10){
-		    squareY = ZONE_JEU_HEIGHT-10;
+		square.y = square.y + 10;
+		if(square.y > ZONE_JEU_HEIGHT-10){
+		    square.y = ZONE_JEU_HEIGHT-10;
 		}
 	    } else if(up) {
-		squareY = squareY - 10;
-		if(squareY < 0){
-		    squareY = 0;
+		square.y = square.y - 10;
+		if(square.y < 0){
+		    square.y = 0;
 		}
 	    } else if(right) {
-		squareX = squareX + 10;
-		if(squareX > ZONE_JEU_WIDTH-10){
-		    squareX = ZONE_JEU_WIDTH-10;
+		square.x = square.x + 10;
+		if(square.x > ZONE_JEU_WIDTH-10){
+		    square.x = ZONE_JEU_WIDTH-10;
 		}
 	    } else if(left) {
-		squareX = squareX - 10;
-		if(squareX < 0){
-		    squareX = 0;
+		square.x = square.x - 10;
+		if(square.x < 0){
+		    square.x = 0;
 		}
 	    }
 
 	    context.fillStyle = "black";
-	    context.fillRect(squareX,squareY,SQUARE_LENGTH,SQUARE_LENGTH);
+	    context.fillRect(square.x,square.y,SQUARE_LENGTH,SQUARE_LENGTH);
 
 	}
 
@@ -86,6 +85,10 @@
 	    } else if(e.keyCode == 37) {
 		left = true;
 	    }
+	}
+	function Square(x,y) {
+	    this.x = x;
+	    this.y = y;
 	}
 </script>
 
