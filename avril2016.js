@@ -100,11 +100,11 @@
 	function Snake(head) {
 	    this.head = head;
 	    this.draw = function() {
-		head.draw();
-		var body = head.next;
+		var body = head;
+		body.draw();
 		while(body.next){
-		    body.draw();
 		    body = body.next;
+		    body.draw();
 		}
 	    };
 	    this.move = function(X, Y) {
