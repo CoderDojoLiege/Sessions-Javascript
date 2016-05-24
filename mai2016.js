@@ -27,6 +27,10 @@
 	var left = true;
 	var right = true;
 
+	var fruit_x = getRandomMinMax(0,ZONE_JEU_WIDTH/10)*10;
+	var fruit_y = getRandomMinMax(0,ZONE_JEU_HEIGHT/10)*10;
+	var fruit = new Square(fruit_x,fruit_y);
+
 	window.addEventListener('load', function () {
 	    // On récupère l'objet canvas pour dessiner dedans
 	    context = document.getElementById('canvasElem').getContext('2d');
@@ -42,6 +46,8 @@
 
 	    // On efface la zone
 	    context.clearRect(0, 0, ZONE_JEU_WIDTH, ZONE_JEU_HEIGHT);
+
+	    fruit.draw();
 
 	    if(down) {
 		snake.move(snake.head.x, snake.head.y + 10);
@@ -108,8 +114,22 @@
 		}
 	    };
 	    this.move = function(X, Y) {
-		head.move(X,Y);
+		if(fruit.x == X && fruit.y == Y){
+		    // on crée un nouveau carré qui devient une nouvelle tête
+		    var newHead = new Square(X,Y);
+		    newHead.next = this.head;
+		    this.head = newHead;
+		    // on crée un nouveau fruit
+		    fruit_x = getRandomMinMax(0,ZONE_JEU_WIDTH/10)*10;
+		    fruit_y = getRandomMinMax(0,ZONE_JEU_HEIGHT/10)*10;
+		    fruit = new Square(fruit_x,fruit_y);
+		} else {
+		    this.head.move(X,Y);
+		}
 	    };
+	}
+	function getRandomMinMax(min,max){
+	    return Math.floor(Math.random()*(max-min))+min;
 	}
 </script>
 
