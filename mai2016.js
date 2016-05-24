@@ -123,9 +123,21 @@
 		    fruit_x = getRandomMinMax(0,ZONE_JEU_WIDTH/10)*10;
 		    fruit_y = getRandomMinMax(0,ZONE_JEU_HEIGHT/10)*10;
 		    fruit = new Square(fruit_x,fruit_y);
+		} else if(this.contains(X,Y)){
+		    //perdu
 		} else {
 		    this.head.move(X,Y);
 		}
+	    };
+	    this.contains = function(X, Y) {
+		var body = this.head;
+		while(body.next){
+		    if(body.x == X && body.y == Y){
+			return true;
+		    }
+		    body = body.next;
+		}
+		return false;
 	    };
 	}
 	function getRandomMinMax(min,max){
